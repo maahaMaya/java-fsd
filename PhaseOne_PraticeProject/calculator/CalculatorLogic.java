@@ -12,15 +12,17 @@ enum CalculatorFunction {
 public class CalculatorLogic {
 
 	public static void main(String[] args) {
+		//class variables
 		int inputCalculatorFunctionValue;
 		float result;
-		
+	
 		Scanner sc = new Scanner(System.in);
 		
+		//taking input to perform calculation
 		System.out.println("Enter 0.Add 1.Multiplication 2.Divison 3.Subtraction 4.Exit");
 		inputCalculatorFunctionValue = sc.nextInt();
 		
-		
+		//Logic for the Arithematic operation
 		  while(inputCalculatorFunctionValue != CalculatorFunction.valueOf("Exit").ordinal()) {
 			  InputDigitValue inputDigitalValue = new InputDigitValue(); 
 			  System.out.println("1st");
