@@ -1,7 +1,6 @@
-package phaseOneProgam;
+package phaseOneFirstProgam;
 
-public class MethodCallingChild extends MethodCallingParent{
-
+public class MethodCalling {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//static method call
@@ -14,5 +13,4 @@ public class MethodCallingChild extends MethodCallingParent{
 		//methodCallingParent.privateMethod();
 		methodCallingParent.nonStaticMethod();
 	}
-
 }

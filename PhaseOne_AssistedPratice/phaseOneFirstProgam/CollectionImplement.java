@@ -1,4 +1,4 @@
-package phaseOneProgam;
+package phaseOneFirstProgam;
 import java.util.*;
 
 public class CollectionImplement {

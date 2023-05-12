@@ -1,4 +1,4 @@
-package phaseOneProgam;
+package phaseOneFirstProgam;
 
 public class AccessModifierChild extends AccessModifierParent {
 

@@ -1,4 +1,4 @@
-package phaseOneProgam;
+package phaseOneFirstProgam;
 
 public class TypeCasting {
 

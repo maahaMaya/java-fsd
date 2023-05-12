@@ -1,4 +1,4 @@
-package phaseOneProgam;
+package phaseOneFirstProgam;
 
 // outer class and inner class
 class OuterClass {
