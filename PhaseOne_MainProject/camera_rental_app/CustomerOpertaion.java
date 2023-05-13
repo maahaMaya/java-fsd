@@ -12,4 +12,22 @@ public interface CustomerOpertaion {
 	
 	//delete customer by id
 	public void deleteCustomerById(String custId);
+	
+	//customer login by id and password
+	public CustomerDetail loginCustomer();
+	
+	//customer add camera
+	public boolean addCameraByCustomer();
+	
+	//display add Camera By Customer
+	public void displayAddCameraByCustomer();
+	
+	//logout Customer
+	public void logoutCustomer();
+	
+	//rent a camera
+	public void rentCamera();
+	
+	//Customer Wallet
+	public int customerWallet();
 }

@@ -66,6 +66,28 @@ public class AdminPerformOperations implements AdminOperations {
 		adminLoginSuccess = false;
 		System.out.println("Logout successfully Admin");
 	}
-
-
+	
+	public CustomerDetail loginCustomers() {
+		return customerPerformOpertaion.loginCustomer();
+	}
+	
+	public boolean addCameraByCustomer() {
+		return customerPerformOpertaion.addCameraByCustomer();
+	}
+	
+	public void displayCustomersCameraById() {
+		customerPerformOpertaion.displayAddCameraByCustomer();
+	}
+	
+	public void logoutCustomer() {
+		customerPerformOpertaion.logoutCustomer();
+	}
+	
+	public void rentCamera() {
+		customerPerformOpertaion.rentCamera();
+	}
+	
+	public int customerWallet() {
+		return customerPerformOpertaion.customerWallet();
+	}
 }

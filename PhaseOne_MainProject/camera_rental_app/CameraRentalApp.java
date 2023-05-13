@@ -10,6 +10,7 @@ public class CameraRentalApp {
 		boolean loginWhileLoop = true;
 		// AdminPerformOperations object is called
 		AdminPerformOperations adminPerformOperations = new AdminPerformOperations();
+		AdminTask adminTask = new AdminTask();
 		// CustomerPerformOpertaion object is called
 		//CustomerPerformOpertaion customerPerformOpertaion = new CustomerPerformOpertaion();
 
@@ -29,12 +30,19 @@ public class CameraRentalApp {
 			case 1:
 				adminPerformOperations.adminLogin();
 				// AdminTask object is called
-				AdminTask adminTask = new AdminTask();
+				
 				if (adminPerformOperations.adminLoginSuccess) {
 					adminTask.adminAllTask();
 				}
 				break;
 			case 2:
+				//CustomerPerformOpertaion customerPerformOpertaion = new CustomerPerformOpertaion();
+				CustomerDetail customerDetailAfterLogin = null;
+				while(customerDetailAfterLogin == null) {
+					customerDetailAfterLogin = adminPerformOperations.loginCustomers();
+				}
+				CustomerTask customerTask = new CustomerTask();
+				customerTask.customerAllTask();
 				break;
 			case 3:
 				loginWhileLoop = false;
