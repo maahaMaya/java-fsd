@@ -34,7 +34,11 @@ public class AdminPerformOperations implements AdminOperations {
 			if (!adminLoginSuccess) {
 				System.out.println("Enter the Correct credential");
 			} else if (adminLoginSuccess) {
-				System.out.println("Login successfully Admin");
+				System.out.println("+ --------------------------------------- +");
+				System.out.print("|       ");
+				System.out.print("   Login successfully Admin  ");
+				System.out.println("     |");
+				System.out.println("+ --------------------------------------- +");
 				break;
 			}
 		} while (!adminLoginSuccess);
@@ -64,7 +68,11 @@ public class AdminPerformOperations implements AdminOperations {
 	@Override
 	public void adminLogout() {
 		adminLoginSuccess = false;
-		System.out.println("Logout successfully Admin");
+		System.out.println("+ --------------------------------------- +");
+		System.out.print("|       ");
+		System.out.print("  Logout successfully Admin  ");
+		System.out.println("     |");
+		System.out.println("+ --------------------------------------- +");
 	}
 	
 	public CustomerDetail loginCustomers() {
@@ -89,5 +97,9 @@ public class AdminPerformOperations implements AdminOperations {
 	
 	public int customerWallet() {
 		return customerPerformOpertaion.customerWallet();
+	}
+	
+	public void customerRentDetails() {
+		customerPerformOpertaion.customerRentDetails();
 	}
 }

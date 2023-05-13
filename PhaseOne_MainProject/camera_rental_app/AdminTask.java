@@ -18,8 +18,8 @@ public class AdminTask {
 	public void adminAllTask() {
 		while (adminWhileLoop) {
 			System.out.println(
-					"Enter \n1.Add Customer \n2.Recharge Customer Account \n3.Get All Customer \n4.Delete Customer \n5.Logout Admin \n6.Login Admin "
-					+ "\n7.Login Customer \n8. Add Camera By Customer \n9.Display Customer Camera By Id \n10.Logout Customer \n11.Rent a camera \n12. My Wallet");
+					"Enter the Choice :: \n1.Add Customer \n2.Recharge Customer Account \n3.Get All Customer \n4.Delete Customer \n5.Logout Admin \n6.Login Admin "
+					+ "\n7.Login Customer \n8. Add Camera By Customer \n9.Display Customer Camera By Id \n10.Logout Customer \n11.Rent a camera \n12. My Wallet 13.Order History");
 			int inputTaskNumber = sc.nextInt();
 			switch (inputTaskNumber) {
 			case 1:
@@ -62,9 +62,11 @@ public class AdminTask {
 				adminPerformOperations.rentCamera();
 				break;
 			case 12:
-				adminPerformOperations.customerWallet();
+				System.out.println("Customer Wallet : " + adminPerformOperations.customerWallet());
 				break;
-			
+			case 13:
+				adminPerformOperations.customerRentDetails();
+				break;
 			default:
 				System.out.print("Enter the correct option....");
 			}

@@ -12,7 +12,8 @@ public class CameraRentalApp {
 		AdminPerformOperations adminPerformOperations = new AdminPerformOperations();
 		AdminTask adminTask = new AdminTask();
 		// CustomerPerformOpertaion object is called
-		//CustomerPerformOpertaion customerPerformOpertaion = new CustomerPerformOpertaion();
+		// CustomerPerformOpertaion customerPerformOpertaion = new
+		// CustomerPerformOpertaion();
 
 		// Scanner class object is called
 		Scanner sc = new Scanner(System.in);
@@ -23,35 +24,11 @@ public class CameraRentalApp {
 		System.out.println("     |");
 		System.out.println("+ --------------------------------------- +");
 
-		while (loginWhileLoop) {
-			System.out.println("Enter \n1.Admin Login \n2.Customer Login \n3.Exit");
-			int inputToPerformLogin = sc.nextInt();
-			switch (inputToPerformLogin) {
-			case 1:
-				adminPerformOperations.adminLogin();
-				// AdminTask object is called
-				
-				if (adminPerformOperations.adminLoginSuccess) {
-					adminTask.adminAllTask();
-				}
-				break;
-			case 2:
-				//CustomerPerformOpertaion customerPerformOpertaion = new CustomerPerformOpertaion();
-				CustomerDetail customerDetailAfterLogin = null;
-				while(customerDetailAfterLogin == null) {
-					customerDetailAfterLogin = adminPerformOperations.loginCustomers();
-				}
-				CustomerTask customerTask = new CustomerTask();
-				customerTask.customerAllTask();
-				break;
-			case 3:
-				loginWhileLoop = false;
-				System.out.print("Exit Successfully");
-				sc.close();
-				break;
-			default:
-				System.out.print("Enter the correct options : ");
-			}
+		adminPerformOperations.adminLogin();
+		// AdminTask object is called
+
+		if (adminPerformOperations.adminLoginSuccess) {
+			adminTask.adminAllTask();
 		}
 	}
 

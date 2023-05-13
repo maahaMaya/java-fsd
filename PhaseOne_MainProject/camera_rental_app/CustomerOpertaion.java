@@ -22,6 +22,9 @@ public interface CustomerOpertaion {
 	//display add Camera By Customer
 	public void displayAddCameraByCustomer();
 	
+	//display all camera
+	public void displayAllCamera();
+	
 	//logout Customer
 	public void logoutCustomer();
 	
@@ -30,4 +33,7 @@ public interface CustomerOpertaion {
 	
 	//Customer Wallet
 	public int customerWallet();
+	
+	//Customer Rent Details
+	public void customerRentDetails();
 }

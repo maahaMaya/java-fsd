@@ -17,7 +17,11 @@ public class CustomerPerformOpertaion implements CustomerOpertaion {
 	List<CameraDetail> listCameras = new ArrayList<CameraDetail>();
 
 	//
+	List<RentDetail> listCameraRent = new ArrayList<RentDetail>();
+
+	//
 	CustomerDetail afterLoginCustomerDetails;
+	RentDetail rentDetails;
 
 	@Override
 	public void addCustomerIntoArrayList() {
@@ -25,7 +29,7 @@ public class CustomerPerformOpertaion implements CustomerOpertaion {
 		 * if(adminPerformOperations.adminLoginSuccess) {
 		 * System.out.print("++++++++++++++++++++"); return; }
 		 */
-		System.out.println("Enter Name : ");
+		System.out.println("Enter Customer Name : ");
 		String custName = sc.next();
 
 		System.out.println("Enter Money Deposite : ");
@@ -38,18 +42,18 @@ public class CustomerPerformOpertaion implements CustomerOpertaion {
 
 		listCustomers.add(new CustomerDetail(customerId, custName, custMoneyDeposite, customerPassword));
 		custIds++;
+		System.out.println("Customer Register Successfully");
 	}
 
 	@Override
 	public void displayCustomer() {
-		System.out.println("---------------------------------------");
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("CustomerId  CustomerName  CustomerBalance  CustomerPassword");
 		listCustomers.forEach((listCustomer) -> {
-			System.out.println(listCustomer.custId);
-			System.out.println(listCustomer.customerName);
-			System.out.println(listCustomer.customerBalance);
-			System.out.println(listCustomer.customerPassword);
-			System.out.println("---------------------------------------");
+			System.out.println(listCustomer.custId + " 		   " + listCustomer.customerName + "  		  "
+					+ listCustomer.customerBalance + " 		   " + listCustomer.customerPassword);
 		});
+		System.out.println("-----------------------------------------------------------");
 	}
 
 	@Override
@@ -85,7 +89,14 @@ public class CustomerPerformOpertaion implements CustomerOpertaion {
 
 		for (CustomerDetail customerDetail : listCustomers) {
 			if (customerDetail.custId.equals(custId) && customerDetail.customerPassword.equals(custPassword)) {
-				System.out.println("Welcome " + customerDetail.customerName);
+
+				System.out.println("+ --------------------------------------- +");
+				System.out.print("|       ");
+				System.out.print("          Welcome  " + customerDetail.customerName + "       ");
+				System.out.println("     |");
+				System.out.println("+ --------------------------------------- +");
+
+				System.out.println("Welcome ");
 				afterLoginCustomerDetails = customerDetail;
 				return customerDetail;
 			}
@@ -107,6 +118,7 @@ public class CustomerPerformOpertaion implements CustomerOpertaion {
 			int cameraPricePerDay = sc.nextInt();
 			listCameras.add(new CameraDetail(cameraId, customerId, cameraBrand, cameraModel, cameraQunatity,
 					cameraPricePerDay));
+			cameraId++;
 		} else {
 			System.out.print("Please Login!!!");
 		}
@@ -116,8 +128,8 @@ public class CustomerPerformOpertaion implements CustomerOpertaion {
 	@Override
 	public void displayAddCameraByCustomer() {
 		if (afterLoginCustomerDetails != null) {
-			System.out.println("============================================================================");
-			System.out.println("CameraId	Brand		Model		Qunatity		PricePerDay		Stock   ");
+			System.out.println("========================================================================");
+			System.out.println("CameraId	Brand	Model	Qunatity	PricePerDay	Stock");
 			for (CameraDetail cameraDetail : listCameras) {
 				if (cameraDetail.customerId.equals(afterLoginCustomerDetails.custId)) {
 					String cameraAvilabe;
@@ -126,12 +138,12 @@ public class CustomerPerformOpertaion implements CustomerOpertaion {
 					} else {
 						cameraAvilabe = "Rented All";
 					}
-					System.out.println(cameraDetail.cameraId + "  " + cameraDetail.cameraBrand + "  "
-							+ cameraDetail.cameraModel + "  " + cameraDetail.cameraQunatity + "  "
-							+ cameraDetail.cameraPricePerDay + "  " + cameraAvilabe);
+					System.out.println(cameraDetail.cameraId + "             " + cameraDetail.cameraBrand
+							+ "             " + cameraDetail.cameraModel + "             " + cameraDetail.cameraQunatity
+							+ "             " + cameraDetail.cameraPricePerDay + "             " + cameraAvilabe);
 				}
 			}
-			System.out.println("============================================================================");
+			System.out.println("========================================================================");
 		} else {
 			System.out.print("Please Login!!!");
 		}
@@ -139,18 +151,97 @@ public class CustomerPerformOpertaion implements CustomerOpertaion {
 	}
 
 	@Override
+	public void displayAllCamera() {
+		if (afterLoginCustomerDetails != null) {
+			System.out.println("==============================================================");
+			System.out.println("CameraId	Brand	Model	Qunatity	PricePerDay		Stock");
+			for (CameraDetail cameraDetail : listCameras) {
+				String cameraAvilabe;
+				if (cameraDetail.cameraQunatity > 0) {
+					cameraAvilabe = "Avilabe";
+				} else {
+					cameraAvilabe = "Rented All";
+				}
+				System.out.println(cameraDetail.cameraId + "    " + cameraDetail.cameraBrand + "    "
+						+ cameraDetail.cameraModel + "    " + cameraDetail.cameraQunatity + "    "
+						+ cameraDetail.cameraPricePerDay + "    " + cameraAvilabe);
+			}
+			System.out.println("==============================================================");
+		} else {
+			System.out.print("Please Login!!!");
+		}
+	}
+
+	@Override
 	public void logoutCustomer() {
 		afterLoginCustomerDetails = null;
-		System.out.println("Visit Again....");
+		System.out.println("+ --------------------------------------- +");
+		System.out.print("|       ");
+		System.out.print("          Visit Again...                    ");
+		System.out.println("     |");
+		System.out.println("+ --------------------------------------- +");
 	}
 
 	@Override
 	public void rentCamera() {
-		System.out.println("Customer Rent logic");
+		displayAllCamera();
+		if (afterLoginCustomerDetails != null) {
+			System.out.println("Enter the Camera Id ");
+			int cameraId = sc.nextInt();
+			for (CameraDetail cameraDetail : listCameras) {
+				if (((int) cameraDetail.cameraId) == (cameraId)) {
+					System.out.println("Enter the Camera Qunatity ");
+					int cameraQunatity = sc.nextInt();
+					if ((int) cameraDetail.cameraQunatity >= cameraQunatity) {
+						int totalPrice = cameraDetail.cameraPricePerDay * cameraDetail.cameraQunatity;
+						if (afterLoginCustomerDetails.customerBalance >= totalPrice) {
+
+							for (CustomerDetail customerDetail : listCustomers) {
+								// buy
+								if (customerDetail.custId.equals(afterLoginCustomerDetails.custId)) {
+									customerDetail.customerBalance = customerDetail.customerBalance - totalPrice;
+									listCustomers.set(listCustomers.indexOf(customerDetail), customerDetail);
+								}
+
+								// sell
+								if (customerDetail.custId.equals(cameraDetail.customerId)) {
+									customerDetail.customerBalance = customerDetail.customerBalance + totalPrice;
+									listCustomers.set(listCustomers.indexOf(customerDetail), customerDetail);
+								}
+
+								listCameraRent.add(new RentDetail(cameraId, afterLoginCustomerDetails.custId,
+										cameraQunatity, cameraDetail.cameraPricePerDay));
+
+								System.out.println("ORDER PLACE SUCCESS");
+								return;
+							}
+
+						} else {
+							int rechargeAmount = totalPrice - afterLoginCustomerDetails.customerBalance;
+							System.out.println("recahrge account : " + rechargeAmount + "Rs");
+						}
+					} else {
+						System.out.println("total  product avilabe : " + cameraDetail.cameraQunatity);
+					}
+
+				}
+			}
+		} else {
+			System.out.print("Please Login!!!");
+		}
 	}
 
 	@Override
 	public int customerWallet() {
 		return afterLoginCustomerDetails.customerBalance;
+	}
+
+	@Override
+	public void customerRentDetails() {
+		for (RentDetail rentDetail : listCameraRent) {
+			System.out.println(rentDetail.cameraId + "    " + rentDetail.customerId + "    " + rentDetail.cameraQunatity
+					+ "    " + rentDetail.cameraPricePerDay + "    "
+					+ (rentDetail.cameraPricePerDay * rentDetail.cameraQunatity));
+		}
 	}
 }
