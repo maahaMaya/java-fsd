@@ -1,4 +1,4 @@
-package com.example.VaccinationCenterApp;
+package coms.VaccinationCenterApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
