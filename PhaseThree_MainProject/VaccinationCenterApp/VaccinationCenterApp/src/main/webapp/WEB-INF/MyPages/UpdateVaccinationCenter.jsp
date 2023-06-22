@@ -8,7 +8,13 @@
 <title>Update Vaccination Center</title>
 </head>
 <body>
-	<h1 style="text-align: center; width: 100%">Modify Cricketer</h1>
+<div style="width: 46vw; height: 8vh; border: 1px solid black; padding: 1vw;"> 
+    <a href="${viewAll }">Vaccination Center</a> &nbsp; &nbsp; &nbsp; 
+    <a href="${viewAllC }">Citizens</a>  &nbsp; &nbsp; &nbsp; 
+    <a href="${s }">Logout</a> &nbsp; &nbsp; &nbsp; 
+    Welcome Admin 
+</div><br/><br/>
+	<h1 style="text-align: center; width: 100%">Modify Vaccination Center</h1>
 	<frm:form method="get" action="updateMethod" modelAttribute="crk">
 		<p style="text-align: center; width: 100%">
 

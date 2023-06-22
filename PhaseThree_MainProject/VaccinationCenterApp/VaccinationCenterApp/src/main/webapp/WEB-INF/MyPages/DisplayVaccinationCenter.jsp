@@ -8,16 +8,29 @@
 <title>AfterLoginPage</title>
 </head>
 <body>
-	<h1 style="text-align: center; width: 100%">View All Cricketers</h1>
+<div style="width: 46vw; height: 8vh; border: 1px solid black; padding: 1vw;"> 
+    <a href="${viewAll }">Vaccination Center</a> &nbsp; &nbsp; &nbsp; 
+    <a href="${viewAllC }">Citizens</a>  &nbsp; &nbsp; &nbsp; 
+    <a href="${s }">Logout</a> &nbsp; &nbsp; &nbsp; 
+    Welcome Admin 
+</div><br/><br/>
+
+<button><a href="${addVc }">Add New Vaccination Center</a></button><br/><br/>
+	<h1 style="text-align: center; width: 100%">View All Vaccination Center</h1>
 	<table width="100%" border="1">
 		<tr>
-			<th>Crk ID</th>
-			<th>Crk Name</th>
-			<th>Game</th>
+			<th>Vaccination ID</th>
+			<th>Name</th>
+			<th>City</th>
+			<th>Action</th>
 		</tr>
 
 		<c:forEach var="crk" items="${listOfVaccinationCenter }">
 			<c:url var="deleteLink" value="/deleteVc">
+				<c:param name="vaccinationCenterId"
+					value="${crk.vaccinationcenterid}" />
+			</c:url>
+			<c:url var="ViewLink" value="/viewById">
 				<c:param name="vaccinationCenterId"
 					value="${crk.vaccinationcenterid}" />
 			</c:url>
@@ -29,8 +42,9 @@
 				<td>${crk.centername }</td>
 				<td>${crk.centercity }</td>
 				<td><a href="${deleteLink}"
-					onclick="if (!(confirm('Are you sure you want to delete this Cricketer?'))) return false">Delete</a></td>
-				<td><a href="${updateLink}">Update</a></td>
+					onclick="if (!(confirm('Are you sure you want to delete this Cricketer?'))) return false">Delete</a>
+					<a href="${ViewLink}">View</a>
+					<a href="${updateLink}">Update</a></td>
 			</tr>
 		</c:forEach>
 	</table>

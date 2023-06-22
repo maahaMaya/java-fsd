@@ -7,6 +7,13 @@
 <title>AdminLogin</title>
 </head>
 <body>
+<div style="width: 46vw; height: 8vh; border: 1px solid black; padding: 1vw;"> 
+    <a href="${viewAll }">Vaccination Center</a> &nbsp; &nbsp; &nbsp; 
+    <a href="${viewAllC }">Citizens</a>  &nbsp; &nbsp; &nbsp; 
+    <a href="${s }">Logout</a> &nbsp; &nbsp; &nbsp; 
+    Welcome Admin 
+</div><br/><br/>
+
 	<div style="width: 45vw; height: 35vh; border: 1px solid black;">
 		<form method="post" action="userLogin" style="padding-left: 3vw;">
 			<h1>Login</h1><br /> 

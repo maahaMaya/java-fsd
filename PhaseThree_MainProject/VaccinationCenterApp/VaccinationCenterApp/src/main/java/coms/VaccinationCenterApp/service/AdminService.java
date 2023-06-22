@@ -1,7 +1,5 @@
 package coms.VaccinationCenterApp.service;
 
-import org.springframework.ui.Model;
-
 import coms.VaccinationCenterApp.model.AdminDetail;
 
 public interface AdminService {

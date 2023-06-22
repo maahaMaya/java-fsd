@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div style="width: 46vw; height: 8vh; border: 1px solid black; padding: 1vw;"> 
+    <a href="${viewAll }">Vaccination Center</a> &nbsp; &nbsp; &nbsp; 
+    <a href="${viewAllC }">Citizens</a>  &nbsp; &nbsp; &nbsp; 
+    <a href="${s }">Logout</a> &nbsp; &nbsp; &nbsp; 
+    Welcome Admin 
+</div><br/><br/>
     <div style="width: 45vw;  border: 1px solid black;">
         <h1 >Admin Registration</h1>
 		<form method="post" action="RegisterAdminPageMethod" style="margin: 1vw; border: 1px solid black; font-size: 20px;" >

@@ -24,7 +24,7 @@ public class AdminController {
 	@Autowired
 	VaccinationCenterService vaccinationCenterService;
 
-	@GetMapping(value = "/")
+	@GetMapping(value = "/s")
 	public String adminLoginPage() {
 		return "AdminLogin";
 	}

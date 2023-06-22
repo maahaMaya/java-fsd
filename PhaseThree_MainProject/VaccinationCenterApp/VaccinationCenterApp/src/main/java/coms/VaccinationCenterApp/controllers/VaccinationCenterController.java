@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import coms.VaccinationCenterApp.model.CitizenDetail;
 import coms.VaccinationCenterApp.model.VaccinationCenterDetail;
+import coms.VaccinationCenterApp.service.CitizenService;
 import coms.VaccinationCenterApp.service.VaccinationCenterService;
 
 @Controller
@@ -18,6 +20,8 @@ public class VaccinationCenterController {
 
 	@Autowired
 	VaccinationCenterService vaccinationCenterService;
+	@Autowired
+	CitizenService citizenService;
 	
 	@GetMapping(value ="/viewAll")
 	public String viewAllVaccinationCenter(Model model) {
@@ -39,7 +43,7 @@ public class VaccinationCenterController {
 	}
 	
 	@GetMapping(value = "/addNewVc")
-	public String addNewVaccinationCenter(@RequestParam("") String centerName, @RequestParam("") String centerCity) {
+	public String addNewVaccinationCenter(@RequestParam("centerName") String centerName, @RequestParam("centerCity") String centerCity) {
 		VaccinationCenterDetail vaccinationCenterDetail = new VaccinationCenterDetail();
 		vaccinationCenterDetail.setCentername(centerName);
 		vaccinationCenterDetail.setCentercity(centerCity);
@@ -66,5 +70,14 @@ public class VaccinationCenterController {
 	public String updateVaccinationCentreMethod(@ModelAttribute("crk") VaccinationCenterDetail updateValueObject, Model model) {
 		vaccinationCenterService.updateVaccinationCenter(updateValueObject);
 		return "redirect:/viewAll";
+	}
+	
+	@GetMapping(value = "/viewById")
+	public String viewVcById(@RequestParam("vaccinationCenterId") int vcid, Model model) {
+		VaccinationCenterDetail vcById = vaccinationCenterService.findByIdVaccinationCenter(vcid);
+		CitizenDetail cDById = citizenService.findByIdCitizen(25);
+		model.addAttribute("cDById", cDById);
+		model.addAttribute("vcById", vcById);
+		return "ViewById";
 	}
 }
