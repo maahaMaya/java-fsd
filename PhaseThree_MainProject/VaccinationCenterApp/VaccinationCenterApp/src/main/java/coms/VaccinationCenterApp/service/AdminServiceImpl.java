@@ -33,7 +33,6 @@ public class AdminServiceImpl implements AdminService{
 		for (Iterator iterator = allAdminList.iterator(); iterator.hasNext();) {
 			AdminDetail adminDetail = (AdminDetail) iterator.next();
 			if(Email.equals(adminDetail.getEmail()) && Password.equals(adminDetail.getPassword())) {
-				System.out.println(adminDetail.getEmail() + "+++++++" + adminDetail.getPassword());
 				return true;
 			}
 		}
