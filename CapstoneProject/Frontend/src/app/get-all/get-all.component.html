@@ -1,0 +1,23 @@
+<div class="tables">
+    <table class="table caption-top">
+        <caption  >List Of Aadhar</caption>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email Id</th>
+            <th>DOB</th>
+            <th>Address</th>
+        </tr> 
+        <tr *ngFor="let l of login">
+            <td>{{l.id}}</td>
+            <td>{{l.name}}</td>
+            <td>{{l.phone}}</td>
+            <td>{{l.emailid}}</td>
+            <td>{{l.dob}}</td>
+            <td>{{l.address}}</td>
+            <td id="data"><button  class="btn btn-outline-danger" (click)="deleteUser(l.emailid)">Delete Aadhar</button></td>
+        </tr>
+
+    </table>
+</div>

@@ -1,0 +1,45 @@
+ <div class="container-fluid">
+    <h2>Create Account</h2>
+    <form [formGroup]="loginRef" (ngSubmit)="signUp()">
+        <div class="form-group">
+        <input type="email" placeholder="Enter Email Id" formControlName="emailid"/>
+        </div>
+        <div class="form-group">
+        <input type="password" placeholder="Enter password" formControlName="password"/>
+        </div>
+        <div class="form-group">
+        <input type="number" placeholder="Enter number" formControlName="id"/>
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Enter your name" formControlName="name"/>
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Enter your address" formControlName="address"/>
+        </div>
+        <div class="form-group">
+            <input type="number" placeholder="Enter your mobile number" formControlName="phone"/>
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Enter your DOB" formControlName="dob"/>
+        </div>
+        <!-- <label>Type Of User: </label> -->
+        <input type="radio" name="typeOfUser" value="admin" formControlName="typeOfUser"/>admin
+        <input type="radio" name="typeOfUser" value="user" formControlName="typeOfUser"/>user
+        <br>
+        <div class="form-group">
+            <input type="submit" value="Sign up" class="btn btn-primary"/>
+        </div>
+        <div class="form-group">
+            <input type="reset" value="reset" class="btn btn-secondary"/>
+        </div>
+        <!-- <input type="submit" value="Sign up" /> -->
+        <!-- <input type="reset" value="reset"/> -->
+        <!-- <input type="button" (click)="note()" value="note"/> -->
+    </form>
+    <br>
+    <span style="color: red;">{{msg}}</span><br>
+    <!-- <a routerLink="/login">Login</a> -->
+    <div class="form-group"><p>Return Back to <button class="btn btn-outline-secondary"><a routerLink="/login" style="color: black; text-decoration:none">Login</a></button> </p></div>
+</div>
+
+

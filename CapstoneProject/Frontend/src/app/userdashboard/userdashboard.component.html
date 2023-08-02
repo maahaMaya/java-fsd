@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <h2>
+        Welcome to home page user {{user}}
+    </h2>
+    <div class="btns">
+        <button class="btn btn-secondary"><a routerLink="applyUser" class="btn btn-secondary">Apply for Aadhar</a></button>
+        <button class="btn btn-secondary"><a routerLink="updateUser" (click)="updateUser(user)" class="btn btn-secondary">Update details</a></button>
+    </div>
+    
+    
+    <router-outlet></router-outlet>
+    <hr>
+    <input type="button" value="Logout" (click)="logout()" class="btn btn-secondary"/>
+</div>

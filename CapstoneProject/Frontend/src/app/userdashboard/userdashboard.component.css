@@ -1,0 +1,28 @@
+.container-fluid{
+    /* margin-left: 30%; */
+    margin-top: 30px;
+    padding-bottom: 13px;
+    padding-top: 13px;
+    width: 90%;
+    border: 1px solid darkgray;
+}
+.btns{
+    
+    padding: auto;
+
+}
+button{
+    margin-left: 7px;
+}
+h2{
+    text-align: center;
+    color: darkgoldenrod;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+
+}
+p{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+}
